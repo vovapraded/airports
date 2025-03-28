@@ -1,6 +1,7 @@
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.stream.Stream;
 
 import arg.parser.ArgumentParser;
 import arg.parser.RawArgument;
@@ -10,10 +11,10 @@ import arg.validator.CommonValidator;
 import data.Data;
 import data.DataProcessor;
 
-import input.InputProcessor;
 import lombok.experimental.UtilityClass;
 import output.Output;
 import output.OutputProcessor;
+import request.RequestLinesProcessor;
 
 /**
  * Основной класс программы
@@ -37,9 +38,11 @@ public class Main {
 
 
             OutputProcessor outputProcessor = new OutputProcessor(argument.output(), new Output((int) (endTime-startTime),new ArrayList<>() ));
-            InputProcessor inputProcessor = new InputProcessor(outputProcessor);
+            RequestLinesProcessor requestLinesProcessor = new RequestLinesProcessor();
 
-            inputProcessor.processFile(argument.input(),  data);
+            requestLinesProcessor.processLines(argument.input(), data, outputProcessor);
+
+
             outputProcessor.saveInFile();
         } catch (IOException e) {
             System.err.println(e.getMessage());

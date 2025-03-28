@@ -1,11 +1,11 @@
-package input.request;
+package request.line;
 
 import java.util.*;
 
-public class RequestStringProcessor extends RequestProcessor {
+public class RequestLineStringProcessor extends RequestLineProcessor {
 
 
-    public RequestStringProcessor(Map<String, Integer> map) {
+    public RequestLineStringProcessor(Map<String, Integer> map) {
         super(map);
     }
 

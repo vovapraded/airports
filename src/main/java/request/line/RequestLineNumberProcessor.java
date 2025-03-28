@@ -1,4 +1,4 @@
-package input.request;
+package request.line;
 
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
@@ -6,9 +6,9 @@ import org.apache.commons.lang3.tuple.Pair;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class RequestNumberProcessor extends RequestProcessor {
+public class RequestLineNumberProcessor extends RequestLineProcessor {
 
-        public RequestNumberProcessor(Map<String, Integer> map) {
+        public RequestLineNumberProcessor(Map<String, Integer> map) {
             super(map);
         }
 

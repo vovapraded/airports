@@ -23,15 +23,15 @@ public class DataProcessor {
         HashMap<String, Integer> result = new HashMap<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
-            int lineIndex = 1;
 
 
             while ((line = reader.readLine()) != null) {
                 String[] columns = line.split(",");
+                int lineIndex = Integer.parseInt(columns[0]);
                 if (columnNumber < 1 || columnNumber > columns.length) {
                     throw new ValidationException("Invalid column number: " + columnNumber);
                 }
-                result.put(handleValue(columns[columnNumber - 1]), lineIndex++);
+                result.put(handleValue(columns[columnNumber - 1]), lineIndex);
             }
         }
         return new Data(result);

@@ -1,13 +1,13 @@
-package input.request;
+package request.line;
 
 
 import java.util.*;
 
-public abstract class RequestProcessor {
+public abstract class RequestLineProcessor {
     protected final Map<String, Integer> map;
     protected final List<String> sortedKeys;
 
-    public RequestProcessor(Map<String, Integer> map) {
+    public RequestLineProcessor(Map<String, Integer> map) {
         this.map = map;
         this.sortedKeys = new ArrayList<>(map.keySet());
         Collections.sort(this.sortedKeys);
